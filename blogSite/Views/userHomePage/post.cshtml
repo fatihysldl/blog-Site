@@ -1,0 +1,21 @@
+﻿@using entityLayer.concrete
+@model List<post>
+@{
+    Layout = null;
+}
+
+@foreach (var i in Model)
+{
+    <div class="post-preview">
+        <a href="/userContentPage/Index/@i.postId">
+            <h2 class="post-title">@i.postHeader</h2>
+            <h3 class="post-subtitle">@i.postDescription</h3>
+        </a>
+        <p class="post-meta">
+            Posted by @i.Author.authorName
+            <br />
+            <a href="#!">Date: @i.postDate</a>
+        </p>
+    </div>
+}
+

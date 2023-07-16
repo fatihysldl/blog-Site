@@ -1,0 +1,42 @@
+﻿@model entityLayer.concrete.post
+@{
+    ViewBag.Title = "addPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Post</h2>
+
+@using (Html.BeginForm("addPost", "adminPost", FormMethod.Post))
+{
+<div class="form-group">
+    <labal>Post Header</labal>
+    @Html.TextBoxFor(i => i.postHeader, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.postHeader)
+    <br />
+    <labal>Post Description</labal>
+    @Html.TextBoxFor(i => i.postDescription, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.postDescription)
+    <br />
+    <labal>Post Date</labal>
+    @Html.TextBoxFor(i => i.postDate, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.postDate)
+    <br />
+    <labal>Content</labal>
+    @Html.TextBoxFor(i => i.contentValue, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.contentValue)
+    <br />
+    <labal>Author</labal>
+    @*@Html.TextBoxFor(i => i.authorId, new { @class = "form-control" })*@
+    @Html.DropDownListFor(i => i.authorId, (List<SelectListItem>)ViewBag.authorValue, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.authorId)
+    <br />
+    <labal>Category</labal>
+    @*@Html.TextBoxFor(i => i.categoryId, new { @class = "form-control" })*@
+    @Html.DropDownListFor(i => i.categoryId, (List<SelectListItem>)ViewBag.categoryValue, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.categoryId)
+    @Html.HiddenFor(i => i.postId)
+    <br />
+    <button class="btn btn-primary">Add</button>
+
+</div>
+}

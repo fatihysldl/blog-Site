@@ -1,0 +1,15 @@
+﻿@using entityLayer.concrete
+@model List<about>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/userLayout.cshtml";
+}
+
+<h2>Blog Hakkında</h2>
+@foreach (var i in Model)
+{
+    <div>
+        <img src="@i.aboutImage" style="max-width:auto"/>
+    </div>
+    <p style="margin-top:10px;">@i.aboutValue</p>
+}

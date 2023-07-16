@@ -1,0 +1,36 @@
+﻿@using entityLayer.concrete
+@model List<about>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>About</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>About Id</th>
+        <th>About Value</th>
+        <th>About Image</th>
+        <th>Edit About</th>
+    </tr>
+
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.aboutId</td>
+                <td>@i.aboutValue</td>
+                <td>@i.aboutImage</td>
+                <td>
+                    <a href="/adminAuthor/deleteAbout/@i.aboutId" style=" display: flex; align-items: center" class="btn btn-warning">
+                        Delete
+                    </a>
+                    <a href="/adminAuthor/editAbout/@i.aboutId" class="btn btn-success" style=" display: flex; align-items: center; margin-top:5px;">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

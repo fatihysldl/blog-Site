@@ -1,0 +1,35 @@
+﻿@using entityLayer.concrete
+@model List<header>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Header</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Header Id</th>
+        <th>Header Name</th>
+        <th>Header Description</th>
+        <th>Edit Header</th>
+    </tr>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.headerId</td>
+                <td>@i.headerName</td>
+                <td>@i.headerDescription</td>
+                <td>
+                    <a href="/adminHeader/deleteHeader/@i.headerId" style=" display: flex; align-items: center" class="btn btn-warning">
+                        Delete
+                    </a>
+                    <a href="/adminHeader/updateHeader/@i.headerId" class="btn btn-success" style=" display: flex; align-items: center; margin-top:5px;">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

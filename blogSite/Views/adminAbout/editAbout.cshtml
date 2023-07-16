@@ -1,0 +1,25 @@
+﻿@model entityLayer.concrete.about
+@{
+    ViewBag.Title = "editAbout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit About</h2>
+
+@using (Html.BeginForm("editAbout", "adminAbout", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>About Value</label>
+        @Html.TextBoxFor(i => i.aboutValue, new { @class = "form-control" })
+        @Html.ValidationMessageFor(i => i.aboutValue);
+        <br />
+        <label>About Image</label>
+        @Html.TextBoxFor(i => i.aboutImage, new { @class = "form-control" })
+
+        @Html.HiddenFor(i => i.aboutId)
+
+        <br />
+        <button class="btn btn-primary">Update</button>
+    </div>
+
+}

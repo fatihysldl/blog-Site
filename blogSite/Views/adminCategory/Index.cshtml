@@ -1,0 +1,34 @@
+﻿@using entityLayer.concrete
+@model List<category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Category Id</th>
+        <th>Category Ad</th>
+        <th>Edit Category</th>
+    </tr>
+
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.categoryId</td>
+                <td>@i.categoryName</td>
+                <td>
+                    <a href="/adminCategory/deleteCategory/@i.categoryId" style=" display: flex; align-items: center" class="btn btn-warning">
+                        Delete
+                    </a>
+                    <a href="/adminCategory/editCategory/@i.categoryId" class="btn btn-success" style=" display: flex; align-items: center; margin-top:5px;">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/adminCategory/addCategory" class="btn btn-primary">Add Category</a>
+

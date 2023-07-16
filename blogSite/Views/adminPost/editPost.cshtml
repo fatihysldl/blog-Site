@@ -1,0 +1,33 @@
+﻿@model entityLayer.concrete.post
+@{
+    ViewBag.Title = "editPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Post</h2>
+
+@using (Html.BeginForm("editPost", "adminPost", FormMethod.Post))
+{
+    <div class="form-group">
+        <labal>Post Header</labal>
+        @Html.TextBoxFor(i => i.postHeader, new { @class = "form-control" })
+        <br />
+        <labal>Post Description</labal>
+        @Html.TextBoxFor(i => i.postDescription, new { @class = "form-control" })
+        <br />
+        <labal>Post Date</labal>
+        @Html.TextBoxFor(i => i.postDate, new { @class = "form-control" })
+        <br />
+        <labal>Content</labal>
+        @Html.TextBoxFor(i => i.contentValue, new { @class = "form-control" })
+        <br />
+        <labal>Author</labal>
+        @Html.TextBoxFor(i => i.authorId, new { @class = "form-control" })
+        <br />
+        <labal>Category</labal>
+        @Html.TextBoxFor(i => i.categoryId, new { @class = "form-control" })
+        @Html.HiddenFor(i => i.postId)
+        <button class="btn btn-primary">Update</button>
+
+    </div>
+}

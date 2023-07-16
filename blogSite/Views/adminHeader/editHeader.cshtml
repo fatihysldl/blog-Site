@@ -1,0 +1,20 @@
+﻿@model entityLayer.concrete.header
+@{
+    ViewBag.Title = "editHeader";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Header</h2>
+
+@using (Html.BeginForm("editHeader", "adminHeader", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Header Name</label>
+        @Html.TextBoxFor(i => i.headerName, new { @class = "form-control" })
+        <br />
+        <label>Header Description</label>
+        @Html.TextBoxFor(i => i.headerName, new { @class = "form-control" })
+        @Html.HiddenFor(i=>i.headerId)
+        <button class="btn btn-primary">Update</button>
+    </div>
+}

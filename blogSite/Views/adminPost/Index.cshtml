@@ -1,0 +1,68 @@
+﻿@using entityLayer.concrete
+@model List<post>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Post</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Post Id</th>
+        <th>Post Header</th>
+        <th>Post Description</th>
+        <th>Post Date</th>
+        <th>Post Status</th>
+    </tr>
+
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.postId</td>
+                <td>@i.postHeader</td>
+                <td>@i.postDescription</td>
+                <td>@i.postDate</td>
+                <td>
+                    <a href="/adminPost/deletePost/@i.postId" style=" display: flex; align-items: center" class="btn btn-warning">
+                        Delete
+                    </a>
+                    <a href="/adminPost/updatePost/@i.postId" class="btn btn-success" style=" display: flex; align-items: center; margin-top:5px;">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Post Id</th>
+        <th>Content Value</th>
+    </tr>
+
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.postId</td>
+                <td>@i.contentValue</td>
+                <td>
+                    <a href="/adminPost/deletePost/@i.postId" style=" display: flex; align-items: center" class="btn btn-warning">
+                        Delete
+                    </a>
+                    <a href="/adminPost/updatePost/@i.postId" class="btn btn-success" style=" display: flex; align-items: center; margin-top:5px;">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/adminPost/addPost" class="btn btn-primary">Add Post</a>
+
+
+

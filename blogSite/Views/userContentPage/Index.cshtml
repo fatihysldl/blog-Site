@@ -1,0 +1,21 @@
+﻿@using entityLayer.concrete
+@model List<post>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/userLayout.cshtml";
+}
+
+
+@foreach (var i in Model)
+{
+    <h2>@i.postHeader</h2>
+    <p>
+        @i.contentValue
+    </p>
+    <br />
+    <br />
+
+    <label>Author Name: @i.Author.authorName</label>
+    <br />
+    <label >Date: @i.postDate</label>
+}
